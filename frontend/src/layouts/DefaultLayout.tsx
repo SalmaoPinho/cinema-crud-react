@@ -5,9 +5,9 @@ export default function DefaultLayout() {
   return (
     <>
       <Nav />
-      <main className="container">
+      <div>
         <Outlet />
-      </main>
+      </div>
     </>
   );
 }
