@@ -1,0 +1,93 @@
+import { type ISala } from "../models/sala.model";
+
+// Variáveis de ambiente
+const API_BASE_URL = import.meta.env.VITE_API_URL_SALAS || 'http://localhost:4000/salas';
+
+export class SalasService {
+    
+    private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+        const url = `${API_BASE_URL}${endpoint}`;
+        
+        const defaultHeaders = {
+            'Content-Type': 'application/json',
+        };
+
+        const config: RequestInit = {
+            ...options,
+            headers: { ...defaultHeaders, ...options.headers },
+        };
+
+        try {
+            const response = await fetch(url, config);
+
+            if (!response.ok) {
+                const errorMessage = await response.text().catch(() => response.statusText);
+                throw new Error(`Erro API (${response.status}): ${errorMessage}`);
+            }
+
+            if (response.status === 204) {
+                return {} as T;
+            }
+
+            return await response.json();
+        } catch (error) {
+            console.error(`Erro na requisição para ${url}:`, error);
+            throw error;
+        }
+    }
+
+    async findAll(): Promise<ISala[]> {
+        return this.request<ISala[]>('');
+    }
+
+    async findById(id: number | string): Promise<ISala> {
+        this.validateId(id);
+        return this.request<ISala>(`/${id}`);
+    }
+
+    async create(sala: Omit<ISala, 'id'>): Promise<ISala> {
+        return this.request<ISala>('', {
+            method: 'POST',
+            body: JSON.stringify(sala),
+        });
+    }
+
+    async update(id: number | string, sala: Partial<ISala>): Promise<ISala> {
+        this.validateId(id);
+        return this.request<ISala>(`/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(sala),
+        });
+    }
+
+    async delete(id: number | string): Promise<void> {
+        this.validateId(id);
+        return this.request<void>(`/${id}`, {
+            method: 'DELETE',
+        });
+    }
+
+    private validateId(id: number | string): void {
+        if (!id) {
+            throw new Error('ID é obrigatório');
+        }
+    }
+
+    // Métodos auxiliares específicos para salas
+    async findByStatus(status: 'ativa' | 'inativa' | 'manutencao'): Promise<ISala[]> {
+        const salas = await this.findAll();
+        return salas.filter(sala => sala.status === status);
+    }
+
+    async findByTipo(tipo: string): Promise<ISala[]> {
+        const salas = await this.findAll();
+        return salas.filter(sala => sala.tipo === tipo);
+    }
+
+    async getTotalCapacidade(): Promise<number> {
+        const salas = await this.findAll();
+        return salas.reduce((total, sala) => total + sala.capacidade, 0);
+    }
+}
+
+export const salasService = new SalasService();

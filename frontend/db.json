@@ -1,19 +1,536 @@
 {
-  "usuarios": [
+  "filmes": [
     {
-      "nome": "MONICA J. SILVA",
-      "email": "monica@gmail.com",
-      "senha": "123456",
-      "status": "inativo",
-      "id": "137c"
+      "id": "filme-1",
+      "titulo": "O Poderoso Chefão",
+      "descricao": "Drama familiar sobre o crime organizado italiano.",
+      "genero": "drama",
+      "classificacao": "14",
+      "duracao": 175,
+      "dataEstreia": "2024-01-15",
+      "imagem": "https://www.quadrorama.com.br/wp-content/uploads/2017/07/36-3.png",
+      "status": "em-cartaz"
     },
     {
-      "nome": "MIGULE C. ",
-      "email": "miguel@gmail.com",
-      "senha": "dandan",
-      "status": "inativo",
-      "id": "0f1d"
+      "id": "filme-2",
+      "titulo": "Matrix",
+      "descricao": "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos.",
+      "genero": "ficcao",
+      "classificacao": "14",
+      "duracao": 136,
+      "dataEstreia": "2024-02-20",
+      "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv8Vz5",
+      "status": "em-cartaz"
     },
-  
-  ]
+    {
+      "id": "filme-3",
+      "titulo": "Homem-Aranha: Sem Volta Para Casa",
+      "descricao": "Aventura épica do herói aracnídeo.",
+      "genero": "acao",
+      "classificacao": "12",
+      "duracao": 150,
+      "dataEstreia": "2024-03-10",
+      "imagem": "https://example.com/spiderman.jpg",
+      "status": "em-cartaz"
+    },
+    {
+      "id": "filme-4",
+      "titulo": "Barbie",
+      "descricao": "Uma aventura rosa cheia de humor e criatividade.",
+      "genero": "comedia",
+      "classificacao": "12",
+      "duracao": 114,
+      "dataEstreia": "2024-04-05",
+      "imagem": "https://example.com/barbie.jpg",
+      "status": "em-cartaz"
+    },
+    {
+      "id": "filme-5",
+      "titulo": "Titanic",
+      "descricao": "Uma história de amor em tempos de tragédia no Atlântico.",
+      "genero": "romance",
+      "classificacao": "12",
+      "duracao": 194,
+      "dataEstreia": "2024-05-12",
+      "imagem": "https://example.com/titanic.jpg",
+      "status": "em-breve"
+    },
+    {
+      "id": "filme-6",
+      "titulo": "O Iluminado",
+      "descricao": "Um filme de horror psicológico sobre loucura e isolamento.",
+      "genero": "thriller",
+      "classificacao": "16",
+      "duracao": 146,
+      "dataEstreia": "2024-06-01",
+      "imagem": "https://example.com/shining.jpg",
+      "status": "em-breve"
+    },
+    {
+      "id": "filme-7",
+      "titulo": "Toy Story 4",
+      "descricao": "As aventuras continuam com Woody e seus amigos brinquedos.",
+      "genero": "infantil",
+      "classificacao": "0",
+      "duracao": 100,
+      "dataEstreia": "2024-07-15",
+      "imagem": "https://example.com/toystory.jpg",
+      "status": "em-cartaz"
+    },
+    {
+      "id": "filme-8",
+      "titulo": "Se Precisar de Mim, Estarei Lá",
+      "descricao": "Uma comédia emocionante sobre amizade.",
+      "genero": "comedia",
+      "classificacao": "10",
+      "duracao": 108,
+      "dataEstreia": "2024-08-20",
+      "imagem": "https://example.com/comedy.jpg",
+      "status": "fora-cartaz"
+    },
+    {
+      "id": "filme-9",
+      "titulo": "Duna",
+      "descricao": "Uma épica ficção científica em um planeta desértico.",
+      "genero": "ficcao",
+      "classificacao": "12",
+      "duracao": 166,
+      "dataEstreia": "2024-09-10",
+      "imagem": "https://example.com/dune.jpg",
+      "status": "em-cartaz"
+    },
+    {
+      "id": "filme-10",
+      "titulo": "Velozes e Furiosos 10",
+      "descricao": "Ação pura em alta velocidade.",
+      "genero": "acao",
+      "classificacao": "14",
+      "duracao": 141,
+      "dataEstreia": "2024-10-05",
+      "imagem": "https://example.com/fastfurious.jpg",
+      "status": "em-cartaz"
+    }
+  ],
+  "salas": [
+    {
+      "id": "sala-1",
+      "numero": 1,
+      "tipo": "IMAX",
+      "capacidade": 300,
+      "recursos": {
+        "somDolby": true,
+        "arCondicionado": true,
+        "acessibilidade": true,
+        "lancheria": true
+      },
+      "status": "ativa"
+    },
+    {
+      "id": "sala-2",
+      "numero": 2,
+      "tipo": "3D",
+      "capacidade": 200,
+      "recursos": {
+        "somDolby": true,
+        "arCondicionado": true,
+        "acessibilidade": true,
+        "lancheria": false
+      },
+      "status": "ativa"
+    },
+    {
+      "id": "sala-3",
+      "numero": 3,
+      "tipo": "STANDARD",
+      "capacidade": 150,
+      "recursos": {
+        "somDolby": false,
+        "arCondicionado": true,
+        "acessibilidade": false,
+        "lancheria": true
+      },
+      "status": "ativa"
+    },
+    {
+      "id": "sala-4",
+      "numero": 4,
+      "tipo": "4DX",
+      "capacidade": 180,
+      "recursos": {
+        "somDolby": true,
+        "arCondicionado": true,
+        "acessibilidade": true,
+        "lancheria": true
+      },
+      "status": "ativa"
+    },
+    {
+      "id": "sala-5",
+      "numero": 5,
+      "tipo": "VIP",
+      "capacidade": 80,
+      "recursos": {
+        "somDolby": true,
+        "arCondicionado": true,
+        "acessibilidade": true,
+        "lancheria": true
+      },
+      "status": "ativa"
+    }
+  ],
+  "sessoes": [
+    {
+      "id": "sessao-1",
+      "filmeId": "filme-1",
+      "salaId": "sala-1",
+      "dataHora": "2024-12-10T14:00:00.000Z",
+      "preco": 50,
+      "idioma": "dublado",
+      "formato": "IMAX",
+      "assentosDisponiveis": 280,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-2",
+      "filmeId": "filme-1",
+      "salaId": "sala-1",
+      "dataHora": "2024-12-10T20:00:00.000Z",
+      "preco": 55,
+      "idioma": "dublado",
+      "formato": "IMAX",
+      "assentosDisponiveis": 250,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-3",
+      "filmeId": "filme-2",
+      "salaId": "sala-2",
+      "dataHora": "2024-12-11T16:00:00.000Z",
+      "preco": 45,
+      "idioma": "legendado",
+      "formato": "3D",
+      "assentosDisponiveis": 180,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-4",
+      "filmeId": "filme-3",
+      "salaId": "sala-3",
+      "dataHora": "2024-12-11T18:30:00.000Z",
+      "preco": 38,
+      "idioma": "dublado",
+      "formato": "STANDARD",
+      "assentosDisponiveis": 140,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-5",
+      "filmeId": "filme-4",
+      "salaId": "sala-4",
+      "dataHora": "2024-12-12T10:00:00.000Z",
+      "preco": 48,
+      "idioma": "dublado",
+      "formato": "4DX",
+      "assentosDisponiveis": 170,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-6",
+      "filmeId": "filme-5",
+      "salaId": "sala-5",
+      "dataHora": "2024-12-12T20:00:00.000Z",
+      "preco": 60,
+      "idioma": "legendado",
+      "formato": "VIP",
+      "assentosDisponiveis": 75,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-7",
+      "filmeId": "filme-7",
+      "salaId": "sala-3",
+      "dataHora": "2024-12-13T14:00:00.000Z",
+      "preco": 30,
+      "idioma": "dublado",
+      "formato": "STANDARD",
+      "assentosDisponiveis": 145,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-8",
+      "filmeId": "filme-9",
+      "salaId": "sala-1",
+      "dataHora": "2024-12-13T22:00:00.000Z",
+      "preco": 52,
+      "idioma": "legendado",
+      "formato": "IMAX",
+      "assentosDisponiveis": 290,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-9",
+      "filmeId": "filme-10",
+      "salaId": "sala-4",
+      "dataHora": "2024-12-14T17:00:00.000Z",
+      "preco": 45,
+      "idioma": "dublado",
+      "formato": "4DX",
+      "assentosDisponiveis": 165,
+      "status": "ativa"
+    },
+    {
+      "id": "sessao-10",
+      "filmeId": "filme-2",
+      "salaId": "sala-2",
+      "dataHora": "2024-12-14T20:00:00.000Z",
+      "preco": 48,
+      "idioma": "legendado",
+      "formato": "3D",
+      "assentosDisponiveis": 190,
+      "status": "ativa"
+    }
+  ],
+  "ingressos": [
+    {
+      "id": "ingresso-1",
+      "sessaoId": "sessao-1",
+      "nomeComprador": "João Silva",
+      "emailComprador": "joao@example.com",
+      "assentoNumero": "A01",
+      "preco": 50,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-08T10:30:00.000Z",
+      "dataUso": "2024-12-10T14:00:00.000Z"
+    },
+    {
+      "id": "ingresso-2",
+      "sessaoId": "sessao-1",
+      "nomeComprador": "Maria Santos",
+      "emailComprador": "maria@example.com",
+      "assentoNumero": "A02",
+      "preco": 25,
+      "statusPagamento": "pago",
+      "tipoBilhete": "meia-entrada",
+      "dataPurchase": "2024-12-08T11:15:00.000Z",
+      "dataUso": "2024-12-10T14:00:00.000Z"
+    },
+    {
+      "id": "ingresso-3",
+      "sessaoId": "sessao-1",
+      "nomeComprador": "Carlos Oliveira",
+      "emailComprador": "carlos@example.com",
+      "assentoNumero": "B01",
+      "preco": 0,
+      "statusPagamento": "pago",
+      "tipoBilhete": "gratuito",
+      "dataPurchase": "2024-12-08T12:00:00.000Z",
+      "dataUso": "2024-12-10T14:00:00.000Z"
+    },
+    {
+      "id": "ingresso-4",
+      "sessaoId": "sessao-2",
+      "nomeComprador": "Ana Costa",
+      "emailComprador": "ana@example.com",
+      "assentoNumero": "C05",
+      "preco": 27.50,
+      "statusPagamento": "pago",
+      "tipoBilhete": "promocional",
+      "dataPurchase": "2024-12-09T09:00:00.000Z",
+      "dataUso": "2024-12-10T20:00:00.000Z"
+    },
+    {
+      "id": "ingresso-5",
+      "sessaoId": "sessao-2",
+      "nomeComprador": "Pedro Martins",
+      "emailComprador": "pedro@example.com",
+      "assentoNumero": "C06",
+      "preco": 55,
+      "statusPagamento": "pendente",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-09T10:30:00.000Z",
+      "dataUso": "2024-12-10T20:00:00.000Z"
+    },
+    {
+      "id": "ingresso-6",
+      "sessaoId": "sessao-3",
+      "nomeComprador": "Lucia Ferreira",
+      "emailComprador": "lucia@example.com",
+      "assentoNumero": "D10",
+      "preco": 45,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-09T14:20:00.000Z",
+      "dataUso": "2024-12-11T16:00:00.000Z"
+    },
+    {
+      "id": "ingresso-7",
+      "sessaoId": "sessao-3",
+      "nomeComprador": "Ricardo Souza",
+      "emailComprador": "ricardo@example.com",
+      "assentoNumero": "D11",
+      "preco": 22.50,
+      "statusPagamento": "pago",
+      "tipoBilhete": "meia-entrada",
+      "dataPurchase": "2024-12-09T15:00:00.000Z",
+      "dataUso": "2024-12-11T16:00:00.000Z"
+    },
+    {
+      "id": "ingresso-8",
+      "sessaoId": "sessao-4",
+      "nomeComprador": "Camila Gomes",
+      "emailComprador": "camila@example.com",
+      "assentoNumero": "E05",
+      "preco": 38,
+      "statusPagamento": "cancelado",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-08T16:45:00.000Z",
+      "dataUso": null
+    },
+    {
+      "id": "ingresso-9",
+      "sessaoId": "sessao-4",
+      "nomeComprador": "Felipe Rocha",
+      "emailComprador": "felipe@example.com",
+      "assentoNumero": "E06",
+      "preco": 38,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-09T08:15:00.000Z",
+      "dataUso": "2024-12-11T18:30:00.000Z"
+    },
+    {
+      "id": "ingresso-10",
+      "sessaoId": "sessao-5",
+      "nomeComprador": "Beatriz Lima",
+      "emailComprador": "beatriz@example.com",
+      "assentoNumero": "F01",
+      "preco": 48,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-09T11:30:00.000Z",
+      "dataUso": "2024-12-12T10:00:00.000Z"
+    },
+    {
+      "id": "ingresso-11",
+      "sessaoId": "sessao-6",
+      "nomeComprador": "Gabriel Dias",
+      "emailComprador": "gabriel@example.com",
+      "assentoNumero": "G01",
+      "preco": 60,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-09T13:00:00.000Z",
+      "dataUso": "2024-12-12T20:00:00.000Z"
+    },
+    {
+      "id": "ingresso-12",
+      "sessaoId": "sessao-6",
+      "nomeComprador": "Isabela Mendes",
+      "emailComprador": "isabela@example.com",
+      "assentoNumero": "G02",
+      "preco": 30,
+      "statusPagamento": "reembolsado",
+      "tipoBilhete": "meia-entrada",
+      "dataPurchase": "2024-12-08T09:00:00.000Z",
+      "dataUso": null
+    },
+    {
+      "id": "ingresso-13",
+      "sessaoId": "sessao-7",
+      "nomeComprador": "Tiago Barbosa",
+      "emailComprador": "tiago@example.com",
+      "assentoNumero": "H03",
+      "preco": 30,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-10T10:00:00.000Z",
+      "dataUso": "2024-12-13T14:00:00.000Z"
+    },
+    {
+      "id": "ingresso-14",
+      "sessaoId": "sessao-8",
+      "nomeComprador": "Sophia Alves",
+      "emailComprador": "sophia@example.com",
+      "assentoNumero": "I10",
+      "preco": 52,
+      "statusPagamento": "pendente",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-10T15:30:00.000Z",
+      "dataUso": "2024-12-13T22:00:00.000Z"
+    },
+    {
+      "id": "ingresso-15",
+      "sessaoId": "sessao-8",
+      "nomeComprador": "Lucas Neves",
+      "emailComprador": "lucas@example.com",
+      "assentoNumero": "I11",
+      "preco": 26,
+      "statusPagamento": "pago",
+      "tipoBilhete": "meia-entrada",
+      "dataPurchase": "2024-12-10T16:00:00.000Z",
+      "dataUso": "2024-12-13T22:00:00.000Z"
+    },
+    {
+      "id": "ingresso-16",
+      "sessaoId": "sessao-9",
+      "nomeComprador": "Fernanda Pereira",
+      "emailComprador": "fernanda@example.com",
+      "assentoNumero": "J08",
+      "preco": 45,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-11T09:15:00.000Z",
+      "dataUso": "2024-12-14T17:00:00.000Z"
+    },
+    {
+      "id": "ingresso-17",
+      "sessaoId": "sessao-9",
+      "nomeComprador": "Gustavo Silva",
+      "emailComprador": "gustavo@example.com",
+      "assentoNumero": "J09",
+      "preco": 22.50,
+      "statusPagamento": "pago",
+      "tipoBilhete": "meia-entrada",
+      "dataPurchase": "2024-12-11T10:00:00.000Z",
+      "dataUso": "2024-12-14T17:00:00.000Z"
+    },
+    {
+      "id": "ingresso-18",
+      "sessaoId": "sessao-10",
+      "nomeComprador": "Helena Rocha",
+      "emailComprador": "helena@example.com",
+      "assentoNumero": "K05",
+      "preco": 48,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2024-12-11T14:30:00.000Z",
+      "dataUso": "2024-12-14T20:00:00.000Z"
+    },
+    {
+      "id": "ingresso-19",
+      "sessaoId": "sessao-1",
+      "nomeComprador": "Marcus Vinicius",
+      "emailComprador": "marcus@example.com",
+      "assentoNumero": "B02",
+      "preco": 25,
+      "statusPagamento": "pendente",
+      "tipoBilhete": "promocional",
+      "dataPurchase": "2024-12-08T13:45:00.000Z",
+      "dataUso": "2024-12-10T14:00:00.000Z"
+    },
+    {
+      "id": "ingresso-20",
+      "sessaoId": "sessao-5",
+      "nomeComprador": "Veronica Santos",
+      "emailComprador": "veronica@example.com",
+      "assentoNumero": "F02",
+      "preco": 24,
+      "statusPagamento": "reembolsado",
+      "tipoBilhete": "meia-entrada",
+      "dataPurchase": "2024-12-09T12:00:00.000Z",
+      "dataUso": null
+    }
+  ],
+  "usuarios": []
 }

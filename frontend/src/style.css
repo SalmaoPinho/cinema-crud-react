@@ -2,6 +2,7 @@
 :root {
     /* Core colors */
     --frutiger-midblue: #3374ff;
+    --frutiger-dark: #000d55;
     --frutiger-darkblue: #2f00ff;
     --frutiger-blue: #0077ff;
     --frutiger-cyan: #26C6DA;
@@ -29,6 +30,9 @@
     --frutiger-bggradient: linear-gradient(135deg, rgba(38, 198, 218, 0.65) 0%, rgba(0, 68, 255,0.9) 100%);
     --frutiger-gradient: linear-gradient(135deg, var(--frutiger-midblue) 0%, var(--frutiger-darkblue) 100%);
     --frutiger-gradient2: linear-gradient(135deg, var(--frutiger-midblue), var(--frutiger-cyan));
+    --frutiger-gradientdark: linear-gradient(135deg, rgb(35, 46, 146) 0%, rgb(0, 68, 255) 100%);
+    --frutiger-gradientdarker: linear-gradient(135deg, rgb(35, 46, 146) 0%, rgb(0, 19, 71) 100%);
+    --frutiger-gradientlight: linear-gradient(135deg, rgb(220, 239, 255) 0%, rgb(134, 217, 255) 100%);
 }
 
 body {
@@ -86,13 +90,20 @@ body {
 }
 
 .stats-card {
-    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    background: var(--frutiger-gradient);
     color: white;
     border: none;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
 }
-
+.btn-primary {
+    background: var(--frutiger-gradient);
+    font-weight: 600;
+}
+.btn-secondary {
+    background: var(--frutiger-gradientdarker);
+    font-weight: 600;
+}
 .btn-success {
     background: linear-gradient(135deg, var(--frutiger-green), #4CAF50);
     border: none;
@@ -113,12 +124,16 @@ body {
     border-radius: 25px;
     font-weight: 600;
 }
+.btn-light {
+    background: var(--frutiger-gradientlight);
+    font-weight: 600;
+    -webkit-text-fill-color: var(--frutiger-dark);
+}
 
 .bg-primary {
-    background: var(--frutiger-gradient2);
+    background: var(--frutiger-gradientdark);
     border: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 25px;
     font-weight: 600;
 }
@@ -129,10 +144,10 @@ body {
     border-radius: 25px;
     font-weight: 600;
 }
-
-.btn-light {
-    color: var(--frutiger-darkblue);
+.bg-light {
+    background: var(--frutiger-gradientlight);
     border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 25px;
     font-weight: 600;
 }
@@ -194,7 +209,7 @@ body {
     color: #01579B;
 }
 h1, h5 {
-    background: var(--frutiger-darkblue);
+    background: var(--frutiger-gradientlight);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -302,7 +317,7 @@ input[type="radio"] {
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 .feature-card {
-    background: var(--frutiger-gradient2);
+    background: var(--frutiger-gradientdarker);
     color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
@@ -317,7 +332,7 @@ input[type="radio"] {
     font-size: 1.5rem;
 }
 .stats-card {
-    background: var(--frutiger-gradient2);
+    background: var(--frutiger-gradientdark);
     color: white;
     border: none;
 }
