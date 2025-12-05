@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { sessoesService } from '../../services/sessao.service';
 import { filmesService } from '../../services/filme.service';
 import { salasService } from '../../services/sala.service';
@@ -6,7 +7,8 @@ import { type ISessao } from '../../models/sessao.model';
 import { type IFilme } from '../../models/filme.model';
 import { type ISala } from '../../models/sala.model';
 
-export const ProgPages = () => {
+export const ProgramacaoPages = () => {
+    const navigate = useNavigate();
     const [sessoes, setSessoes] = useState<ISessao[]>([]);
     const [filmes, setFilmes] = useState<IFilme[]>([]);
     const [salas, setSalas] = useState<ISala[]>([]);
@@ -64,6 +66,10 @@ export const ProgPages = () => {
         if (!sala) return 0;
         const ocupados = sala.capacidade - sessao.assentosDisponiveis;
         return Math.round((ocupados / sala.capacidade) * 100);
+    };
+
+    const handleComprarIngresso = (sessaoId: string) => {
+        navigate(`/ingressos?sessaoId=${sessaoId}`);
     };
 
     return (
@@ -183,7 +189,10 @@ export const ProgPages = () => {
                                                                 <small className="text-muted d-block">A partir de</small>
                                                                 <h3 className="text-success mb-0">{formatarPreco(sessao.preco)}</h3>
                                                             </div>
-                                                            <button className="btn btn-primary btn-lg">
+                                                            <button
+                                                                className="btn btn-primary btn-lg"
+                                                                onClick={() => handleComprarIngresso(sessao.id!)}
+                                                            >
                                                                 <i className="bi bi-ticket-perforated me-2"></i>
                                                                 Comprar Ingresso
                                                             </button>
@@ -294,8 +303,8 @@ export const ProgPages = () => {
                                                             <div className="progress mb-2" style={{ height: '5px' }}>
                                                                 <div
                                                                     className={`progress-bar ${ocupacao < 50 ? 'bg-success' :
-                                                                            ocupacao < 80 ? 'bg-warning' :
-                                                                                'bg-danger'
+                                                                        ocupacao < 80 ? 'bg-warning' :
+                                                                            'bg-danger'
                                                                         }`}
                                                                     style={{ width: `${ocupacao}%` }}
                                                                 ></div>
@@ -305,7 +314,10 @@ export const ProgPages = () => {
                                                                 <span className="h5 mb-0 text-success">
                                                                     {formatarPreco(sessao.preco)}
                                                                 </span>
-                                                                <button className="btn btn-sm btn-primary">
+                                                                <button
+                                                                    className="btn btn-sm btn-primary"
+                                                                    onClick={() => handleComprarIngresso(sessao.id!)}
+                                                                >
                                                                     <i className="bi bi-ticket-perforated me-1"></i>
                                                                     Comprar
                                                                 </button>

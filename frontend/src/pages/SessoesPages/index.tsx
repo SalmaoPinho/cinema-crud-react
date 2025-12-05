@@ -2,9 +2,10 @@ import { useState, useEffect, type FormEvent } from 'react';
 import { sessoesService } from '../../services/sessao.service';
 import { filmesService } from '../../services/filme.service';
 import { salasService } from '../../services/sala.service';
-import { type ISessao } from '../../models/sessao.model';
+import { type ISessao, sessaoSchema } from '../../models/sessao.model';
 import { type IFilme } from '../../models/filme.model';
 import { type ISala } from '../../models/sala.model';
+import { ZodError } from 'zod';
 
 export const SessoesPages = () => {
     const [sessoes, setSessoes] = useState<ISessao[]>([]);
@@ -19,6 +20,7 @@ export const SessoesPages = () => {
         formato: ''
     });
     const [editandoId, setEditandoId] = useState<string | null>(null);
+    const [errors, setErrors] = useState<Record<string, string>>({});
 
     useEffect(() => {
         carregarDados();
@@ -50,10 +52,12 @@ export const SessoesPages = () => {
             formato: ''
         });
         setEditandoId(null);
+        setErrors({});
     };
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+        setErrors({});
 
         try {
             const sala = salas.find(s => s.id === formData.salaId);
@@ -69,6 +73,9 @@ export const SessoesPages = () => {
                 status: 'ativa'
             };
 
+            // Validação com Zod (inclui validação de data retroativa)
+            sessaoSchema.parse(sessaoData);
+
             if (editandoId) {
                 await sessoesService.update(editandoId, sessaoData);
                 alert('Sessão atualizada com sucesso!');
@@ -80,8 +87,18 @@ export const SessoesPages = () => {
             limparFormulario();
             carregarDados();
         } catch (error) {
-            console.error('Erro ao salvar sessão:', error);
-            alert('Erro ao salvar sessão. Verifique os dados e tente novamente.');
+            if (error instanceof ZodError) {
+                const fieldErrors: Record<string, string> = {};
+                error.issues.forEach((err) => {
+                    if (err.path[0]) {
+                        fieldErrors[err.path[0] as string] = err.message;
+                    }
+                });
+                setErrors(fieldErrors);
+            } else {
+                console.error('Erro ao salvar sessão:', error);
+                alert('Erro ao salvar sessão. Verifique os dados e tente novamente.');
+            }
         }
     };
 
@@ -174,7 +191,7 @@ export const SessoesPages = () => {
                                                 Filme
                                             </label>
                                             <select
-                                                className="form-select"
+                                                className={`form-select ${errors.filmeId ? 'is-invalid' : ''}`}
                                                 id="filme"
                                                 required
                                                 value={formData.filmeId}
@@ -187,6 +204,7 @@ export const SessoesPages = () => {
                                                     </option>
                                                 ))}
                                             </select>
+                                            {errors.filmeId && <div className="invalid-feedback d-block">{errors.filmeId}</div>}
                                             <div className="form-text">Filmes cadastrados no sistema</div>
                                         </div>
 
@@ -196,7 +214,7 @@ export const SessoesPages = () => {
                                                 Sala
                                             </label>
                                             <select
-                                                className="form-select"
+                                                className={`form-select ${errors.salaId ? 'is-invalid' : ''}`}
                                                 id="sala"
                                                 required
                                                 value={formData.salaId}
@@ -209,6 +227,7 @@ export const SessoesPages = () => {
                                                     </option>
                                                 ))}
                                             </select>
+                                            {errors.salaId && <div className="invalid-feedback d-block">{errors.salaId}</div>}
                                             <div className="form-text">Salas disponíveis</div>
                                         </div>
                                     </div>
@@ -221,12 +240,13 @@ export const SessoesPages = () => {
                                             </label>
                                             <input
                                                 type="datetime-local"
-                                                className="form-control"
+                                                className={`form-control ${errors.dataHora ? 'is-invalid' : ''}`}
                                                 id="dataHora"
                                                 required
                                                 value={formData.dataHora}
                                                 onChange={(e) => setFormData({ ...formData, dataHora: e.target.value })}
                                             />
+                                            {errors.dataHora && <div className="invalid-feedback d-block">{errors.dataHora}</div>}
                                         </div>
 
                                         <div className="col-md-6 mb-4">
@@ -236,7 +256,7 @@ export const SessoesPages = () => {
                                             </label>
                                             <input
                                                 type="number"
-                                                className="form-control"
+                                                className={`form-control ${errors.preco ? 'is-invalid' : ''}`}
                                                 id="preco"
                                                 placeholder="35.00"
                                                 min="0"
@@ -245,6 +265,7 @@ export const SessoesPages = () => {
                                                 value={formData.preco}
                                                 onChange={(e) => setFormData({ ...formData, preco: e.target.value })}
                                             />
+                                            {errors.preco && <div className="invalid-feedback d-block">{errors.preco}</div>}
                                             <div className="form-text">Preço por ingresso</div>
                                         </div>
                                     </div>
@@ -354,8 +375,8 @@ export const SessoesPages = () => {
                                                 </td>
                                                 <td>
                                                     <span className={`badge ${sessao.status === 'ativa' ? 'bg-success' :
-                                                            sessao.status === 'cancelada' ? 'bg-danger' :
-                                                                'bg-warning'
+                                                        sessao.status === 'cancelada' ? 'bg-danger' :
+                                                            'bg-warning'
                                                         }`}>
                                                         {sessao.status}
                                                     </span>

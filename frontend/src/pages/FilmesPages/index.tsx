@@ -1,6 +1,8 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { filmesService } from '../../services/filme.service';
-import { type IFilme } from '../../models/filme.model';
+import { sessoesService } from '../../services/sessao.service';
+import { type IFilme, filmeSchema } from '../../models/filme.model';
+import { ZodError } from 'zod';
 
 export const FilmesPages = () => {
     const [filmes, setFilmes] = useState<IFilme[]>([]);
@@ -14,6 +16,7 @@ export const FilmesPages = () => {
         imagem: ''
     });
     const [editandoId, setEditandoId] = useState<string | null>(null);
+    const [errors, setErrors] = useState<Record<string, string>>({});
 
     useEffect(() => {
         carregarFilmes();
@@ -40,10 +43,12 @@ export const FilmesPages = () => {
             imagem: ''
         });
         setEditandoId(null);
+        setErrors({});
     };
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+        setErrors({});
 
         try {
             const filmeData: Omit<IFilme, 'id'> = {
@@ -57,6 +62,9 @@ export const FilmesPages = () => {
                 status: 'em-cartaz'
             };
 
+            // Validação com Zod
+            filmeSchema.parse(filmeData);
+
             if (editandoId) {
                 await filmesService.update(editandoId, filmeData);
                 alert('Filme atualizado com sucesso!');
@@ -68,8 +76,18 @@ export const FilmesPages = () => {
             limparFormulario();
             carregarFilmes();
         } catch (error) {
-            console.error('Erro ao salvar filme:', error);
-            alert('Erro ao salvar filme. Verifique os dados e tente novamente.');
+            if (error instanceof ZodError) {
+                const fieldErrors: Record<string, string> = {};
+                error.issues.forEach((err) => {
+                    if (err.path[0]) {
+                        fieldErrors[err.path[0] as string] = err.message;
+                    }
+                });
+                setErrors(fieldErrors);
+            } else {
+                console.error('Erro ao salvar filme:', error);
+                alert('Erro ao salvar filme. Verifique os dados e tente novamente.');
+            }
         }
     };
 
@@ -88,11 +106,22 @@ export const FilmesPages = () => {
     };
 
     const excluirFilme = async (id: string) => {
-        if (!confirm('Tem certeza que deseja excluir este filme?')) return;
+        if (!confirm('Tem certeza que deseja excluir este filme? Todas as sessões associadas também serão excluídas.')) return;
 
         try {
+            // Buscar todas as sessões associadas ao filme
+            const sessoesDoFilme = await sessoesService.findByFilmeId(id);
+
+            // Deletar todas as sessões associadas
+            for (const sessao of sessoesDoFilme) {
+                if (sessao.id) {
+                    await sessoesService.delete(sessao.id);
+                }
+            }
+
+            // Deletar o filme
             await filmesService.delete(id);
-            alert('Filme excluído com sucesso!');
+            alert('Filme e sessões associadas excluídos com sucesso!');
             carregarFilmes();
         } catch (error) {
             console.error('Erro ao excluir filme:', error);
@@ -141,13 +170,14 @@ export const FilmesPages = () => {
                                                 </label>
                                                 <input
                                                     type="url"
-                                                    className="form-control"
+                                                    className={`form-control ${errors.imagem ? 'is-invalid' : ''}`}
                                                     id="imagem"
                                                     placeholder="https://exemplo.com/poster.jpg"
                                                     required
                                                     value={formData.imagem}
                                                     onChange={(e) => setFormData({ ...formData, imagem: e.target.value })}
                                                 />
+                                                {errors.imagem && <div className="invalid-feedback d-block">{errors.imagem}</div>}
                                                 <div className="form-text">
                                                     Recomendado: aspect ratio 2:3 (ex: 300x450px)
                                                 </div>
@@ -180,13 +210,14 @@ export const FilmesPages = () => {
                                                 </label>
                                                 <input
                                                     type="text"
-                                                    className="form-control form-control-lg"
+                                                    className={`form-control form-control-lg ${errors.titulo ? 'is-invalid' : ''}`}
                                                     id="titulo"
                                                     placeholder="Digite o título do filme"
                                                     required
                                                     value={formData.titulo}
                                                     onChange={(e) => setFormData({ ...formData, titulo: e.target.value })}
                                                 />
+                                                {errors.titulo && <div className="invalid-feedback d-block">{errors.titulo}</div>}
                                             </div>
 
                                             <div className="mb-4">
@@ -195,7 +226,7 @@ export const FilmesPages = () => {
                                                     Descrição
                                                 </label>
                                                 <textarea
-                                                    className="form-control"
+                                                    className={`form-control ${errors.descricao ? 'is-invalid' : ''}`}
                                                     id="descricao"
                                                     rows={4}
                                                     placeholder="Sinopse do filme..."
@@ -203,6 +234,7 @@ export const FilmesPages = () => {
                                                     value={formData.descricao}
                                                     onChange={(e) => setFormData({ ...formData, descricao: e.target.value })}
                                                 ></textarea>
+                                                {errors.descricao && <div className="invalid-feedback d-block">{errors.descricao}</div>}
                                             </div>
 
                                             <div className="row">
@@ -261,7 +293,7 @@ export const FilmesPages = () => {
                                                     </label>
                                                     <input
                                                         type="number"
-                                                        className="form-control"
+                                                        className={`form-control ${errors.duracao ? 'is-invalid' : ''}`}
                                                         id="duracao"
                                                         placeholder="120"
                                                         min="1"
@@ -270,6 +302,7 @@ export const FilmesPages = () => {
                                                         value={formData.duracao}
                                                         onChange={(e) => setFormData({ ...formData, duracao: e.target.value })}
                                                     />
+                                                    {errors.duracao && <div className="invalid-feedback d-block">{errors.duracao}</div>}
                                                 </div>
 
                                                 <div className="col-md-6 mb-4">

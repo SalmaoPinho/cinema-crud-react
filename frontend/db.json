@@ -1,17 +1,6 @@
 {
   "filmes": [
     {
-      "id": "filme-1",
-      "titulo": "O Poderoso Chefão",
-      "descricao": "Drama familiar sobre o crime organizado.",
-      "genero": "drama",
-      "classificacao": "14",
-      "duracao": 175,
-      "dataEstreia": "2024-01-15",
-      "imagem": "https://www.quadrorama.com.br/wp-content/uploads/2017/07/36-3.png",
-      "status": "em-cartaz"
-    },
-    {
       "id": "filme-2",
       "titulo": "Matrix",
       "descricao": "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro.",
@@ -86,17 +75,6 @@
       "duracao": 132,
       "dataEstreia": "2024-02-20",
       "imagem": "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png",
-      "status": "em-cartaz"
-    },
-    {
-      "id": "filme-9",
-      "titulo": "Avatar: O Caminho da Água",
-      "descricao": "A continuação da aventura em Pandora.",
-      "genero": "ficcao",
-      "classificacao": "12",
-      "duracao": 192,
-      "dataEstreia": "2024-03-01",
-      "imagem": "https://upload.wikimedia.org/wikipedia/en/5/54/Avatar_The_Way_of_Water_poster.jpg",
       "status": "em-cartaz"
     },
     {
@@ -185,26 +163,15 @@
   ],
   "sessoes": [
     {
-      "id": "sessao-1",
-      "filmeId": "filme-1",
+      "filmeId": "filme-6",
       "salaId": "sala-1",
-      "dataHora": "2024-12-10T14:00:00.000Z",
+      "dataHora": "2025-12-05T17:00:00.000Z",
       "preco": 50,
       "idioma": "dublado",
       "formato": "IMAX",
-      "assentosDisponiveis": 280,
-      "status": "ativa"
-    },
-    {
-      "id": "sessao-2",
-      "filmeId": "filme-1",
-      "salaId": "sala-1",
-      "dataHora": "2024-12-10T20:00:00.000Z",
-      "preco": 55,
-      "idioma": "dublado",
-      "formato": "IMAX",
-      "assentosDisponiveis": 250,
-      "status": "ativa"
+      "assentosDisponiveis": 300,
+      "status": "ativa",
+      "id": "sessao-1"
     },
     {
       "id": "sessao-3",
@@ -259,17 +226,6 @@
       "idioma": "dublado",
       "formato": "STANDARD",
       "assentosDisponiveis": 145,
-      "status": "ativa"
-    },
-    {
-      "id": "sessao-8",
-      "filmeId": "filme-9",
-      "salaId": "sala-1",
-      "dataHora": "2024-12-13T22:00:00.000Z",
-      "preco": 52,
-      "idioma": "legendado",
-      "formato": "IMAX",
-      "assentosDisponiveis": 290,
       "status": "ativa"
     },
     {
@@ -546,6 +502,17 @@
       "statusPagamento": "pago",
       "tipoBilhete": "inteiro",
       "dataPurchase": "2025-12-05T01:35:54.623Z"
+    },
+    {
+      "id": "9f53",
+      "sessaoId": "sessao-7",
+      "nomeComprador": "123",
+      "emailComprador": "123@email.com",
+      "assentoNumero": "A1",
+      "preco": 30,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2025-12-05T11:21:09.524Z"
     }
   ],
   "lanches": [

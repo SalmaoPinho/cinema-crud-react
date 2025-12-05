@@ -25,6 +25,14 @@ export const sessaoSchema = z.object({
     assentosDisponiveis: z.number()
         .min(0, 'Assentos não pode ser negativo'),
     status: z.enum(['ativa', 'cancelada', 'finalizada']).default('ativa')
+}).refine((data) => {
+    // Validação customizada: data da sessão não pode ser retroativa
+    const dataHoraSessao = new Date(data.dataHora);
+    const agora = new Date();
+    return dataHoraSessao >= agora;
+}, {
+    message: 'A data da sessão não pode ser anterior à data atual',
+    path: ['dataHora']
 });
 
 export type SessaoFormData = z.infer<typeof sessaoSchema>;
