@@ -109,7 +109,7 @@ export const SalasPages = () => {
                     <p className="lead mb-0">Configure as salas de exibição do seu cinema</p>
                 </div>
                 <div className="col-md-4 text-md-end">
-                    <a href="index.html" className="btn btn-dark">
+                    <a href="/home" className="btn btn-dark">
                         <i className="bi bi-arrow-left me-2"></i>Voltar ao Início
                     </a>
                 </div>

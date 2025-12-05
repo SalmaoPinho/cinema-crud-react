@@ -3,7 +3,7 @@
     {
       "id": "filme-1",
       "titulo": "O Poderoso Chefão",
-      "descricao": "Drama familiar sobre o crime organizado italiano.",
+      "descricao": "Drama familiar sobre o crime organizado.",
       "genero": "drama",
       "classificacao": "14",
       "duracao": 175,
@@ -14,106 +14,107 @@
     {
       "id": "filme-2",
       "titulo": "Matrix",
-      "descricao": "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos.",
+      "descricao": "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro.",
       "genero": "ficcao",
       "classificacao": "14",
       "duracao": 136,
-      "dataEstreia": "2024-02-20",
-      "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv8Vz5",
+      "dataEstreia": "2024-01-10",
+      "imagem": "https://uauposters.com.br/media/catalog/product/3/4/347120140406-uau-posters-filmes-matrix.jpg",
       "status": "em-cartaz"
     },
     {
       "id": "filme-3",
-      "titulo": "Homem-Aranha: Sem Volta Para Casa",
-      "descricao": "Aventura épica do herói aracnídeo.",
+      "titulo": "Vingadores: Ultimato",
+      "descricao": "Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.",
       "genero": "acao",
       "classificacao": "12",
-      "duracao": 150,
-      "dataEstreia": "2024-03-10",
-      "imagem": "https://example.com/spiderman.jpg",
+      "duracao": 181,
+      "dataEstreia": "2024-01-20",
+      "imagem": "https://img.elo7.com.br/product/zoom/266036C/big-poster-filme-vingadores-ultimato-lo47-tamanho-90x60-cm-vingadores.jpg",
       "status": "em-cartaz"
     },
     {
       "id": "filme-4",
-      "titulo": "Barbie",
-      "descricao": "Uma aventura rosa cheia de humor e criatividade.",
-      "genero": "comedia",
-      "classificacao": "12",
-      "duracao": 114,
-      "dataEstreia": "2024-04-05",
-      "imagem": "https://example.com/barbie.jpg",
-      "status": "em-cartaz"
+      "titulo": "Superman",
+      "descricao": "Superman embarca em uma jornada para reconciliar sua herança kryptoniana com sua criação humana.",
+      "genero": "acao",
+      "classificacao": "14",
+      "duracao": 100,
+      "dataEstreia": "2025-07-10",
+      "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS5kpHGfBNwXEl1mnr2LkSRjRIe1oqKe5VxbbVk42niymTQVzYR",
+      "status": "em-breve"
     },
     {
       "id": "filme-5",
-      "titulo": "Titanic",
-      "descricao": "Uma história de amor em tempos de tragédia no Atlântico.",
-      "genero": "romance",
-      "classificacao": "12",
-      "duracao": 194,
-      "dataEstreia": "2024-05-12",
-      "imagem": "https://example.com/titanic.jpg",
-      "status": "em-breve"
+      "titulo": "Interestelar",
+      "descricao": "Uma equipe de exploradores viaja por um buraco de minhoca no espaço.",
+      "genero": "ficcao",
+      "classificacao": "10",
+      "duracao": 169,
+      "dataEstreia": "2024-02-15",
+      "imagem": "https://br.web.img3.acsta.net/pictures/14/10/31/20/39/476171.jpg",
+      "status": "em-cartaz"
     },
     {
       "id": "filme-6",
-      "titulo": "O Iluminado",
-      "descricao": "Um filme de horror psicológico sobre loucura e isolamento.",
-      "genero": "thriller",
-      "classificacao": "16",
-      "duracao": 146,
-      "dataEstreia": "2024-06-01",
-      "imagem": "https://example.com/shining.jpg",
-      "status": "em-breve"
+      "titulo": "O Rei Leão",
+      "descricao": "O ciclo da vida na savana africana.",
+      "genero": "animacao",
+      "classificacao": "0",
+      "duracao": 118,
+      "dataEstreia": "2024-01-25",
+      "imagem": "https://images.justwatch.com/poster/115572244/s718/o-rei-leao.jpg",
+      "status": "em-cartaz"
     },
     {
       "id": "filme-7",
-      "titulo": "Toy Story 4",
-      "descricao": "As aventuras continuam com Woody e seus amigos brinquedos.",
-      "genero": "infantil",
-      "classificacao": "0",
-      "duracao": 100,
-      "dataEstreia": "2024-07-15",
-      "imagem": "https://example.com/toystory.jpg",
+      "titulo": "The Batman",
+      "descricao": "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
+      "genero": "drama",
+      "classificacao": "16",
+      "duracao": 122,
+      "dataEstreia": "2022-02-10",
+      "imagem": "https://upload.wikimedia.org/wikipedia/pt/3/38/The_Batman_poster.jpg",
       "status": "em-cartaz"
     },
     {
       "id": "filme-8",
-      "titulo": "Se Precisar de Mim, Estarei Lá",
-      "descricao": "Uma comédia emocionante sobre amizade.",
-      "genero": "comedia",
-      "classificacao": "10",
-      "duracao": 108,
-      "dataEstreia": "2024-08-20",
-      "imagem": "https://example.com/comedy.jpg",
-      "status": "fora-cartaz"
+      "titulo": "Parasita",
+      "descricao": "Duas famílias de classes sociais diferentes se entrelaçam.",
+      "genero": "drama",
+      "classificacao": "14",
+      "duracao": 132,
+      "dataEstreia": "2024-02-20",
+      "imagem": "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png",
+      "status": "em-cartaz"
     },
     {
       "id": "filme-9",
-      "titulo": "Duna",
-      "descricao": "Uma épica ficção científica em um planeta desértico.",
+      "titulo": "Avatar: O Caminho da Água",
+      "descricao": "A continuação da aventura em Pandora.",
       "genero": "ficcao",
       "classificacao": "12",
-      "duracao": 166,
-      "dataEstreia": "2024-09-10",
-      "imagem": "https://example.com/dune.jpg",
+      "duracao": 192,
+      "dataEstreia": "2024-03-01",
+      "imagem": "https://upload.wikimedia.org/wikipedia/en/5/54/Avatar_The_Way_of_Water_poster.jpg",
       "status": "em-cartaz"
     },
     {
       "id": "filme-10",
-      "titulo": "Velozes e Furiosos 10",
-      "descricao": "Ação pura em alta velocidade.",
+      "titulo": "Top Gun: Maverick",
+      "descricao": "Depois de mais de 30 anos de serviço como um dos principais aviadores da Marinha, Pete \"Maverick\" Mitchell está de volta, rompendo os limites como um piloto de testes corajoso. No mundo contemporâneo das guerras tecnológicas, Maverick enfrenta drones e prova que o fator humano ainda é essencial.",
       "genero": "acao",
-      "classificacao": "14",
-      "duracao": 141,
-      "dataEstreia": "2024-10-05",
-      "imagem": "https://example.com/fastfurious.jpg",
+      "classificacao": "12",
+      "duracao": 130,
+      "dataEstreia": "2024-02-05",
+      "imagem": "https://translate.google.com/website?sl=en&tl=pt&hl=pt&client=srp&u=https://upload.wikimedia.org/wikipedia/en/1/13/Top_Gun_Maverick_Poster.jpg",
       "status": "em-cartaz"
     }
   ],
   "salas": [
     {
       "id": "sala-1",
+      "nome": "Sala 1 - IMAX",
       "numero": 1,
       "tipo": "IMAX",
       "capacidade": 300,
@@ -127,6 +128,7 @@
     },
     {
       "id": "sala-2",
+      "nome": "Sala 2 - 3D",
       "numero": 2,
       "tipo": "3D",
       "capacidade": 200,
@@ -140,6 +142,7 @@
     },
     {
       "id": "sala-3",
+      "nome": "Sala 3 - Standard",
       "numero": 3,
       "tipo": "STANDARD",
       "capacidade": 150,
@@ -153,6 +156,7 @@
     },
     {
       "id": "sala-4",
+      "nome": "Sala 4 - 4DX",
       "numero": 4,
       "tipo": "4DX",
       "capacidade": 180,
@@ -166,6 +170,7 @@
     },
     {
       "id": "sala-5",
+      "nome": "Sala 5 - VIP",
       "numero": 5,
       "tipo": "VIP",
       "capacidade": 80,
@@ -333,7 +338,7 @@
       "nomeComprador": "Ana Costa",
       "emailComprador": "ana@example.com",
       "assentoNumero": "C05",
-      "preco": 27.50,
+      "preco": 27.5,
       "statusPagamento": "pago",
       "tipoBilhete": "promocional",
       "dataPurchase": "2024-12-09T09:00:00.000Z",
@@ -369,7 +374,7 @@
       "nomeComprador": "Ricardo Souza",
       "emailComprador": "ricardo@example.com",
       "assentoNumero": "D11",
-      "preco": 22.50,
+      "preco": 22.5,
       "statusPagamento": "pago",
       "tipoBilhete": "meia-entrada",
       "dataPurchase": "2024-12-09T15:00:00.000Z",
@@ -489,7 +494,7 @@
       "nomeComprador": "Gustavo Silva",
       "emailComprador": "gustavo@example.com",
       "assentoNumero": "J09",
-      "preco": 22.50,
+      "preco": 22.5,
       "statusPagamento": "pago",
       "tipoBilhete": "meia-entrada",
       "dataPurchase": "2024-12-11T10:00:00.000Z",
@@ -530,6 +535,54 @@
       "tipoBilhete": "meia-entrada",
       "dataPurchase": "2024-12-09T12:00:00.000Z",
       "dataUso": null
+    },
+    {
+      "id": "0782",
+      "sessaoId": "sessao-2",
+      "nomeComprador": "123",
+      "emailComprador": "123@email.com",
+      "assentoNumero": "A1",
+      "preco": 85,
+      "statusPagamento": "pago",
+      "tipoBilhete": "inteiro",
+      "dataPurchase": "2025-12-05T01:35:54.623Z"
+    }
+  ],
+  "lanches": [
+    {
+      "id": "lanche-1",
+      "nome": "Pipoca Grande",
+      "descricao": "Pipoca salgada em tamanho grande.",
+      "preco": 15,
+      "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/v1764893225/imagem_2025-12-04_210701482_svgqi1.png"
+    },
+    {
+      "id": "lanche-2",
+      "nome": "Refrigerante Médio",
+      "descricao": "Refrigerante gelado em tamanho médio.",
+      "preco": 10,
+      "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/v1764893216/imagem_2025-12-04_210652246_f8lema.png"
+    },
+    {
+      "id": "lanche-3",
+      "nome": "Salgadinho \"SNACKS\"",
+      "descricao": "Porção de salgadinhos.",
+      "preco": 18,
+      "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/v1764893267/imagem_2025-12-04_210743746_gdz1rt.png"
+    },
+    {
+      "id": "lanche-4",
+      "nome": "Doce de Gelatina",
+      "descricao": "Gelatina colorida em porção individual.",
+      "preco": 12,
+      "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/v1764894500/imagem_2025-12-04_212815155_eisak3.png"
+    },
+    {
+      "id": "lanche-5",
+      "nome": "Agua Mineral 500ml",
+      "descricao": "Garrafa de água mineral.",
+      "preco": 8,
+      "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/v1764894558/imagem_2025-12-04_212914994_ykwfli.png"
     }
   ],
   "usuarios": []

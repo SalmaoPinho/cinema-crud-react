@@ -96,14 +96,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
 }
-.btn-primary {
-    background: var(--frutiger-gradient);
-    font-weight: 600;
-}
-.btn-secondary {
-    background: var(--frutiger-gradientdarker);
-    font-weight: 600;
-}
+
 .btn-success {
     background: linear-gradient(135deg, var(--frutiger-green), #4CAF50);
     border: none;
@@ -123,11 +116,6 @@ body {
     border: none;
     border-radius: 25px;
     font-weight: 600;
-}
-.btn-light {
-    background: var(--frutiger-gradientlight);
-    font-weight: 600;
-    -webkit-text-fill-color: var(--frutiger-dark);
 }
 
 .bg-primary {
@@ -150,6 +138,11 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 25px;
     font-weight: 600;
+}
+.btn-light {
+    background: var(--frutiger-gradientlight);
+    font-weight: 600;
+    -webkit-text-fill-color: var(--frutiger-dark);
 }
 
 .btn-outline-secondary {
@@ -203,7 +196,7 @@ body {
 }
 
 .alert-info {
-    background: linear-gradient(135deg, #E1F5FE, #B3E5FC);
+    background: var(--frutiger-gradient);
     border: 2px solid var(--frutiger-blue);
     border-radius: 15px;
     color: #01579B;
