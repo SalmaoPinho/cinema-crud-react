@@ -188,7 +188,6 @@ export const HomePages = () => {
 
             {/* Seção de Relatórios */}
             <section className="py-5 bg-dark text-white">
-                <div className="container">
                     <div className="row mb-4">
                         <div className="col-12 text-center">
                             <h3 className="fw-bold">
@@ -201,7 +200,7 @@ export const HomePages = () => {
 
                     <div className="row">
                         <div className="col-lg-8 mx-auto">
-                            <div className="card bg-secondary">
+                            <div className="card bg-primary">
                                 <div className="card-body p-4">
                                     <div className="d-flex justify-content-between align-items-center mb-4">
                                         <h5 className="mb-0">Vendas dos Últimos Dias</h5>
@@ -243,7 +242,6 @@ export const HomePages = () => {
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </>
     );

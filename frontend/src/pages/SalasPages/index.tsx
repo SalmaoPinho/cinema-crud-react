@@ -9,13 +9,7 @@ export const SalasPages = () => {
     const [formData, setFormData] = useState({
         nome: '',
         capacidade: '',
-        tipo: '',
-        recursos: {
-            somDolby: false,
-            arCondicionado: false,
-            acessibilidade: false,
-            lancheria: false
-        }
+        tipo: ''
     });
     const [editandoId, setEditandoId] = useState<string | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
@@ -43,7 +37,6 @@ export const SalasPages = () => {
                 nome: formData.nome,
                 capacidade: parseInt(formData.capacidade),
                 tipo: formData.tipo as ISala['tipo'],
-                recursos: formData.recursos,
                 status: 'ativa'
             };
 
@@ -80,13 +73,7 @@ export const SalasPages = () => {
         setFormData({
             nome: '',
             capacidade: '',
-            tipo: '',
-            recursos: {
-                somDolby: false,
-                arCondicionado: false,
-                acessibilidade: false,
-                lancheria: false
-            }
+            tipo: ''
         });
         setEditandoId(null);
         setErrors({});
@@ -96,8 +83,7 @@ export const SalasPages = () => {
         setFormData({
             nome: sala.nome,
             capacidade: sala.capacidade.toString(),
-            tipo: sala.tipo,
-            recursos: sala.recursos
+            tipo: sala.tipo
         });
         setEditandoId(sala.id || null);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -217,78 +203,6 @@ export const SalasPages = () => {
                                         {errors.tipo && <div className="invalid-feedback d-block">{errors.tipo}</div>}
                                     </div>
                                 </div>
-                                <div className="mb-4">
-                                    <label className="form-label">
-                                        <i className="bi bi-star me-2" style={{ color: 'var(--frutiger-lime)' }}></i>
-                                        Recursos da Sala
-                                    </label>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <div className="form-check">
-                                                <input
-                                                    className="form-check-input"
-                                                    type="checkbox"
-                                                    id="recursoSom"
-                                                    checked={formData.recursos.somDolby}
-                                                    onChange={(e) => setFormData({
-                                                        ...formData,
-                                                        recursos: { ...formData.recursos, somDolby: e.target.checked }
-                                                    })}
-                                                />
-                                                <label className="form-check-label" htmlFor="recursoSom">
-                                                    Sistema de Som Dolby
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input
-                                                    className="form-check-input"
-                                                    type="checkbox"
-                                                    id="recursoAr"
-                                                    checked={formData.recursos.arCondicionado}
-                                                    onChange={(e) => setFormData({
-                                                        ...formData,
-                                                        recursos: { ...formData.recursos, arCondicionado: e.target.checked }
-                                                    })}
-                                                />
-                                                <label className="form-check-label" htmlFor="recursoAr">
-                                                    Ar Condicionado
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="form-check">
-                                                <input
-                                                    className="form-check-input"
-                                                    type="checkbox"
-                                                    id="recursoAcessibilidade"
-                                                    checked={formData.recursos.acessibilidade}
-                                                    onChange={(e) => setFormData({
-                                                        ...formData,
-                                                        recursos: { ...formData.recursos, acessibilidade: e.target.checked }
-                                                    })}
-                                                />
-                                                <label className="form-check-label" htmlFor="recursoAcessibilidade">
-                                                    Acessibilidade
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input
-                                                    className="form-check-input"
-                                                    type="checkbox"
-                                                    id="recursoLancheria"
-                                                    checked={formData.recursos.lancheria}
-                                                    onChange={(e) => setFormData({
-                                                        ...formData,
-                                                        recursos: { ...formData.recursos, lancheria: e.target.checked }
-                                                    })}
-                                                />
-                                                <label className="form-check-label" htmlFor="recursoLancheria">
-                                                    Lancheria Próxima
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                                     <button type="button" className="btn btn-secondary me-md-2" onClick={limparFormulario}>
@@ -329,7 +243,7 @@ export const SalasPages = () => {
                                             <th>Nome</th>
                                             <th>Tipo</th>
                                             <th>Capacidade</th>
-                                            <th>Recursos</th>
+                                            <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
@@ -342,10 +256,7 @@ export const SalasPages = () => {
                                                 </td>
                                                 <td>{sala.capacidade} lugares</td>
                                                 <td>
-                                                    {sala.recursos.somDolby && <span className="badge bg-primary me-1">Dolby</span>}
-                                                    {sala.recursos.arCondicionado && <span className="badge bg-success me-1">A/C</span>}
-                                                    {sala.recursos.acessibilidade && <span className="badge bg-warning me-1">Acessível</span>}
-                                                    {sala.recursos.lancheria && <span className="badge bg-secondary me-1">Lancheria</span>}
+                                                    <span className="badge bg-success">{sala.status}</span>
                                                 </td>
                                                 <td>
                                                     <button

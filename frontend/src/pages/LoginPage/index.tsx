@@ -32,8 +32,6 @@ export const LoginPage = () => {
     };
 
     return (
-        <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-            <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6 col-lg-4">
                         <div className="card shadow-lg">
@@ -86,7 +84,7 @@ export const LoginPage = () => {
                                     </div>
                                 </form>
 
-                                <div className="mt-4 p-3 bg-light rounded">
+                                <div className="mt-4 p-3 bg-primary rounded">
                                     <small className="text-muted d-block mb-2"><strong>Usuários de teste:</strong></small>
                                     <small className="d-block"><strong>Cliente:</strong> cliente / 123</small>
                                     <small className="d-block"><strong>Gerente:</strong> gerente / 123</small>
@@ -95,7 +93,5 @@ export const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     );
 };

@@ -6,8 +6,9 @@ import { SessoesPages } from "../pages/SessoesPages"
 import { FilmesPages } from "../pages/FilmesPages"
 import { LanchesPages } from "../pages/LanchesPages"
 import { ProgramacaoPages } from "../pages/ProgPages"
-import { LoginPage } from "../pages/LoginPage" 
+import { LoginPage } from "../pages/LoginPage"
 import DefaultLayout from "../layouts/DefaultLayout"
+import { ROUTES } from "../routes/constants"
 
 
 export const AppRouter = () => {
@@ -15,14 +16,14 @@ export const AppRouter = () => {
     <>
       <Routes>
         <Route element={<DefaultLayout />}>
-          <Route path="/home" element={<HomePages />} />
-          <Route path="/ingressos" element={<IngressosPages />} />
-          <Route path="/salas" element={<SalasPages />} />
-          <Route path="/sessoes" element={<SessoesPages />} />
-          <Route path="/filmes" element={<FilmesPages />} />
-          <Route path="/lanches" element={<LanchesPages />} />
-          <Route path="/prog" element={<ProgramacaoPages />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path={ROUTES.HOME} element={<HomePages />} />
+          <Route path={ROUTES.INGRESSOS} element={<IngressosPages />} />
+          <Route path={ROUTES.SALAS} element={<SalasPages />} />
+          <Route path={ROUTES.SESSOES} element={<SessoesPages />} />
+          <Route path={ROUTES.FILMES} element={<FilmesPages />} />
+          <Route path={ROUTES.LANCHES} element={<LanchesPages />} />
+          <Route path={ROUTES.PROGRAMACAO} element={<ProgramacaoPages />} />
+          <Route path={ROUTES.LOGIN} element={<LoginPage />} />
         </Route>
       </Routes>
     </>

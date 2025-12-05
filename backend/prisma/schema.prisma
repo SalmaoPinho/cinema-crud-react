@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  email     String   @unique
+  senha     String
+  role      String   @default("CLIENTE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ingressos Ingresso[]
+
+  @@map("usuarios")
+}
+
+model Filme {
+  id            String   @id @default(uuid())
+  titulo        String
+  descricao     String
+  genero        String
+  classificacao String
+  duracao       Int
+  dataEstreia   String
+  imagem        String
+  status        String   @default("EM_CARTAZ")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  sessoes Sessao[]
+
+  @@map("filmes")
+}
+
+model Sala {
+  id         String   @id @default(uuid())
+  nome       String
+  capacidade Int
+  tipo       String
+  status     String   @default("ATIVA")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  sessoes Sessao[]
+
+  @@map("salas")
+}
+
+model Sessao {
+  id        String   @id @default(uuid())
+  filmeId   String
+  salaId    String
+  dataHora  String
+  preco     Float
+  status    String   @default("DISPONIVEL")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  filme     Filme      @relation(fields: [filmeId], references: [id], onDelete: Cascade)
+  sala      Sala       @relation(fields: [salaId], references: [id])
+  ingressos Ingresso[]
+
+  @@map("sessoes")
+}
+
+model Ingresso {
+  id              String   @id @default(uuid())
+  sessaoId        String
+  usuarioId       String?
+  tipoBilhete     String
+  preco           Float
+  statusPagamento String   @default("PENDENTE")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  sessao  Sessao   @relation(fields: [sessaoId], references: [id], onDelete: Cascade)
+  usuario Usuario? @relation(fields: [usuarioId], references: [id])
+
+  @@map("ingressos")
+}
+
+model Lanche {
+  id        String   @id @default(uuid())
+  nome      String
+  descricao String
+  preco     Float
+  imagem    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("lanches")
+}
