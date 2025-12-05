@@ -220,7 +220,7 @@ h2 {
 }
 
 .dropdown-item:hover {
-    background: linear-gradient(135deg, var(--frutiger-light), #B3E5FC);
+    background: var(--frutiger-gradient);
     border-radius: 8px;
     margin: 2px 5px;
 }

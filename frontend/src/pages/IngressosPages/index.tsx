@@ -155,8 +155,7 @@ export const IngressosPages = () => {
                 assentoNumero: formData.assento,
                 preco: totalGeral,
                 statusPagamento: 'pago',
-                tipoBilhete: 'inteiro',
-                dataPurchase: new Date().toISOString()
+                tipoBilhete: 'inteiro'
             };
 
             const novoIngresso = await ingressosService.create(ingressoData);
@@ -219,7 +218,7 @@ export const IngressosPages = () => {
                             <p className="lead mb-0">Venda ingressos e lanches para as sessões disponíveis</p>
                         </div>
                         <div className="col-md-4 text-md-end">
-                            <a href="/home" className="btn btn-light">
+                            <a href="/home" className="btn btn-dark">
                                 <i className="bi bi-arrow-left me-2"></i>Voltar ao Início
                             </a>
                         </div>
@@ -560,7 +559,7 @@ export const IngressosPages = () => {
                                                             {ingresso.statusPagamento}
                                                         </span>
                                                     </td>
-                                                    <td><small>{new Date(ingresso.dataPurchase).toLocaleDateString('pt-BR')}</small></td>
+                                                    <td><small>{ingresso.createdAt ? new Date(ingresso.createdAt).toLocaleDateString('pt-BR') : '-'}</small></td>
                                                 </tr>
                                             );
                                         })}

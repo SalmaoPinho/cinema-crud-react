@@ -74,6 +74,9 @@ model Ingresso {
   id              String   @id @default(uuid())
   sessaoId        String
   usuarioId       String?
+  nomeComprador   String
+  emailComprador  String
+  assentoNumero   String
   tipoBilhete     String
   preco           Float
   statusPagamento String   @default("PENDENTE")

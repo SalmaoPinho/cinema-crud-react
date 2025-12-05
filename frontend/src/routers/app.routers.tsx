@@ -5,6 +5,7 @@ import { SalasPages } from "../pages/SalasPages"
 import { SessoesPages } from "../pages/SessoesPages"
 import { FilmesPages } from "../pages/FilmesPages"
 import { LanchesPages } from "../pages/LanchesPages"
+import { LanchesAdminPages } from "../pages/LanchesAdminPages"
 import { ProgramacaoPages } from "../pages/ProgPages"
 import { LoginPage } from "../pages/LoginPage"
 import DefaultLayout from "../layouts/DefaultLayout"
@@ -22,6 +23,7 @@ export const AppRouter = () => {
           <Route path={ROUTES.SESSOES} element={<SessoesPages />} />
           <Route path={ROUTES.FILMES} element={<FilmesPages />} />
           <Route path={ROUTES.LANCHES} element={<LanchesPages />} />
+          <Route path={ROUTES.LANCHES_ADMIN} element={<LanchesAdminPages />} />
           <Route path={ROUTES.PROGRAMACAO} element={<ProgramacaoPages />} />
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
         </Route>

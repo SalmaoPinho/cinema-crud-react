@@ -17,7 +17,7 @@ export const HomePages = () => {
             // Agrupar vendas por dia (últimos 7 dias)
             const vendas: { [key: string]: number } = {};
             ingressos.forEach(ingresso => {
-                const data = new Date(ingresso.dataPurchase).toLocaleDateString('pt-BR');
+                const data = ingresso.createdAt ? new Date(ingresso.createdAt).toLocaleDateString('pt-BR') : 'Data inválida';
                 vendas[data] = (vendas[data] || 0) + 1;
             });
 
@@ -188,60 +188,60 @@ export const HomePages = () => {
 
             {/* Seção de Relatórios */}
             <section className="py-5 bg-dark text-white">
-                    <div className="row mb-4">
-                        <div className="col-12 text-center">
-                            <h3 className="fw-bold">
-                                <i className="bi bi-graph-up me-2"></i>
-                                Relatório de Vendas
-                            </h3>
-                            <p className="text-muted">Acompanhe o desempenho das vendas de ingressos</p>
-                        </div>
+                <div className="row mb-4">
+                    <div className="col-12 text-center">
+                        <h3 className="fw-bold">
+                            <i className="bi bi-graph-up me-2"></i>
+                            Relatório de Vendas
+                        </h3>
+                        <p className="text-muted">Acompanhe o desempenho das vendas de ingressos</p>
                     </div>
+                </div>
 
-                    <div className="row">
-                        <div className="col-lg-8 mx-auto">
-                            <div className="card bg-primary">
-                                <div className="card-body p-4">
-                                    <div className="d-flex justify-content-between align-items-center mb-4">
-                                        <h5 className="mb-0">Vendas dos Últimos Dias</h5>
-                                        <span className="badge bg-primary fs-6">
-                                            Total: {totalIngressos} ingressos
-                                        </span>
+                <div className="row">
+                    <div className="col-lg-8 mx-auto">
+                        <div className="card bg-primary">
+                            <div className="card-body p-4">
+                                <div className="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 className="mb-0">Vendas dos Últimos Dias</h5>
+                                    <span className="badge bg-primary fs-6">
+                                        Total: {totalIngressos} ingressos
+                                    </span>
+                                </div>
+
+                                {vendasPorDia.length === 0 ? (
+                                    <div className="text-center py-5">
+                                        <i className="bi bi-inbox display-4 text-muted"></i>
+                                        <p className="text-muted mt-3">Nenhuma venda registrada ainda</p>
                                     </div>
-
-                                    {vendasPorDia.length === 0 ? (
-                                        <div className="text-center py-5">
-                                            <i className="bi bi-inbox display-4 text-muted"></i>
-                                            <p className="text-muted mt-3">Nenhuma venda registrada ainda</p>
-                                        </div>
-                                    ) : (
-                                        <div className="chart-container" style={{ minHeight: '300px' }}>
-                                            {vendasPorDia.map((item, index) => (
-                                                <div key={index} className="mb-3">
-                                                    <div className="d-flex justify-content-between align-items-center mb-1">
-                                                        <small className="text-light">{item.dia}</small>
-                                                        <span className="badge bg-success">{item.vendas} vendas</span>
-                                                    </div>
-                                                    <div className="progress" style={{ height: '30px' }}>
-                                                        <div
-                                                            className="progress-bar bg-primary"
-                                                            role="progressbar"
-                                                            style={{ width: `${(item.vendas / maxVendas) * 100}%` }}
-                                                            aria-valuenow={item.vendas}
-                                                            aria-valuemin={0}
-                                                            aria-valuemax={maxVendas}
-                                                        >
-                                                            {item.vendas > 0 && item.vendas}
-                                                        </div>
+                                ) : (
+                                    <div className="chart-container" style={{ minHeight: '300px' }}>
+                                        {vendasPorDia.map((item, index) => (
+                                            <div key={index} className="mb-3">
+                                                <div className="d-flex justify-content-between align-items-center mb-1">
+                                                    <small className="text-light">{item.dia}</small>
+                                                    <span className="badge bg-success">{item.vendas} vendas</span>
+                                                </div>
+                                                <div className="progress" style={{ height: '30px' }}>
+                                                    <div
+                                                        className="progress-bar bg-primary"
+                                                        role="progressbar"
+                                                        style={{ width: `${(item.vendas / maxVendas) * 100}%` }}
+                                                        aria-valuenow={item.vendas}
+                                                        aria-valuemin={0}
+                                                        aria-valuemax={maxVendas}
+                                                    >
+                                                        {item.vendas > 0 && item.vendas}
                                                     </div>
                                                 </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
         </>
     );

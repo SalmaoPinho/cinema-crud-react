@@ -9,7 +9,8 @@ export const ROUTES = {
     SALAS: '/salas',
     SESSOES: '/sessoes',
     INGRESSOS: '/ingressos',
-    LANCHES: '/lanches',
+    LANCHES: '/bomboniere',
+    LANCHES_ADMIN: '/lanches',
     PROGRAMACAO: '/prog',
 } as const;
 

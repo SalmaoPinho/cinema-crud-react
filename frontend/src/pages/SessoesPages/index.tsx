@@ -15,9 +15,7 @@ export const SessoesPages = () => {
         filmeId: '',
         salaId: '',
         dataHora: '',
-        preco: '',
-        idioma: '',
-        formato: ''
+        preco: ''
     });
     const [editandoId, setEditandoId] = useState<string | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
@@ -47,9 +45,7 @@ export const SessoesPages = () => {
             filmeId: '',
             salaId: '',
             dataHora: '',
-            preco: '',
-            idioma: '',
-            formato: ''
+            preco: ''
         });
         setEditandoId(null);
         setErrors({});
@@ -60,17 +56,12 @@ export const SessoesPages = () => {
         setErrors({});
 
         try {
-            const sala = salas.find(s => s.id === formData.salaId);
-
             const sessaoData: Omit<ISessao, 'id'> = {
                 filmeId: formData.filmeId,
                 salaId: formData.salaId,
                 dataHora: new Date(formData.dataHora).toISOString(),
                 preco: parseFloat(formData.preco),
-                idioma: formData.idioma as ISessao['idioma'],
-                formato: formData.formato as ISessao['formato'],
-                assentosDisponiveis: sala?.capacidade || 0,
-                status: 'ativa'
+                status: 'DISPONIVEL'
             };
 
             // Validação com Zod (inclui validação de data retroativa)
@@ -109,9 +100,7 @@ export const SessoesPages = () => {
             filmeId: sessao.filmeId,
             salaId: sessao.salaId,
             dataHora: dataHoraLocal,
-            preco: sessao.preco.toString(),
-            idioma: sessao.idioma,
-            formato: sessao.formato
+            preco: sessao.preco.toString()
         });
         setEditandoId(sessao.id || null);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -270,47 +259,7 @@ export const SessoesPages = () => {
                                         </div>
                                     </div>
 
-                                    <div className="row">
-                                        <div className="col-md-6 mb-4">
-                                            <label htmlFor="idioma" className="form-label">
-                                                <i className="bi bi-translate me-2" style={{ color: 'var(--frutiger-cyan)' }}></i>
-                                                Idioma
-                                            </label>
-                                            <select
-                                                className="form-select"
-                                                id="idioma"
-                                                required
-                                                value={formData.idioma}
-                                                onChange={(e) => setFormData({ ...formData, idioma: e.target.value })}
-                                            >
-                                                <option value="">Selecione o idioma</option>
-                                                <option value="dublado">Dublado</option>
-                                                <option value="legendado">Legendado</option>
-                                            </select>
-                                        </div>
 
-                                        <div className="col-md-6 mb-4">
-                                            <label htmlFor="formato" className="form-label">
-                                                <i className="bi bi-display me-2" style={{ color: 'var(--frutiger-blue)' }}></i>
-                                                Formato
-                                            </label>
-                                            <select
-                                                className="form-select"
-                                                id="formato"
-                                                required
-                                                value={formData.formato}
-                                                onChange={(e) => setFormData({ ...formData, formato: e.target.value })}
-                                            >
-                                                <option value="">Selecione o formato</option>
-                                                <option value="2D">2D</option>
-                                                <option value="3D">3D</option>
-                                                <option value="IMAX">IMAX</option>
-                                                <option value="4DX">4DX</option>
-                                                <option value="STANDARD">Standard</option>
-                                                <option value="VIP">VIP</option>
-                                            </select>
-                                        </div>
-                                    </div>
 
                                     <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                                         <button type="button" className="btn btn-secondary me-md-2" onClick={limparFormulario}>
@@ -354,8 +303,6 @@ export const SessoesPages = () => {
                                             <th>Sala</th>
                                             <th>Data/Hora</th>
                                             <th>Preço</th>
-                                            <th>Idioma</th>
-                                            <th>Formato</th>
                                             <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
@@ -368,18 +315,7 @@ export const SessoesPages = () => {
                                                 <td>{formatarDataHora(sessao.dataHora)}</td>
                                                 <td>{formatarPreco(sessao.preco)}</td>
                                                 <td>
-                                                    <span className="badge bg-info">{sessao.idioma}</span>
-                                                </td>
-                                                <td>
-                                                    <span className="badge bg-secondary">{sessao.formato}</span>
-                                                </td>
-                                                <td>
-                                                    <span className={`badge ${sessao.status === 'ativa' ? 'bg-success' :
-                                                        sessao.status === 'cancelada' ? 'bg-danger' :
-                                                            'bg-warning'
-                                                        }`}>
-                                                        {sessao.status}
-                                                    </span>
+                                                    <span className="badge bg-success">{sessao.status}</span>
                                                 </td>
                                                 <td>
                                                     <button

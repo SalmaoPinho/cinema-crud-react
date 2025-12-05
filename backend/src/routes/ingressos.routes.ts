@@ -52,12 +52,15 @@ router.get('/:id', async (req, res, next) => {
 // POST /api/ingressos - Criar novo ingresso
 router.post('/', async (req, res, next) => {
     try {
-        const { sessaoId, usuarioId, tipoBilhete, preco, statusPagamento } = req.body;
+        const { sessaoId, usuarioId, nomeComprador, emailComprador, assentoNumero, tipoBilhete, preco, statusPagamento } = req.body;
 
         const ingresso = await prisma.ingresso.create({
             data: {
                 sessaoId,
                 usuarioId: usuarioId || null,
+                nomeComprador,
+                emailComprador,
+                assentoNumero,
                 tipoBilhete,
                 preco: Number(preco),
                 statusPagamento: statusPagamento || 'PENDENTE'
@@ -80,13 +83,16 @@ router.post('/', async (req, res, next) => {
 // PUT /api/ingressos/:id - Atualizar ingresso
 router.put('/:id', async (req, res, next) => {
     try {
-        const { sessaoId, usuarioId, tipoBilhete, preco, statusPagamento } = req.body;
+        const { sessaoId, usuarioId, nomeComprador, emailComprador, assentoNumero, tipoBilhete, preco, statusPagamento } = req.body;
 
         const ingresso = await prisma.ingresso.update({
             where: { id: req.params.id },
             data: {
                 ...(sessaoId && { sessaoId }),
                 ...(usuarioId !== undefined && { usuarioId }),
+                ...(nomeComprador && { nomeComprador }),
+                ...(emailComprador && { emailComprador }),
+                ...(assentoNumero && { assentoNumero }),
                 ...(tipoBilhete && { tipoBilhete }),
                 ...(preco && { preco: Number(preco) }),
                 ...(statusPagamento && { statusPagamento })

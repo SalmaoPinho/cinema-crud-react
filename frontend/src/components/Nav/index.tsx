@@ -39,7 +39,7 @@ export default function Nav() {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/lanches">
+                                    <a className="nav-link" href="/bomboniere">
                                         <i className="bi bi-cup-straw me-1"></i>Lanches
                                     </a>
                                 </li>
@@ -73,6 +73,9 @@ export default function Nav() {
                                         <li><a className="dropdown-item" href="/sessoes">
                                             <i className="bi bi-calendar-event me-2"></i>Cadastro de Sessões
                                         </a></li>
+                                        <li><a className="dropdown-item" href="/lanches">
+                                            <i className="bi bi-cup-straw me-2"></i>Cadastro de Lanches
+                                        </a></li>
                                     </ul>
                                 </li>
                                 <li className="nav-item">
@@ -81,7 +84,7 @@ export default function Nav() {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/lanches">
+                                    <a className="nav-link" href="/bomboniere">
                                         <i className="bi bi-cup-straw me-1"></i>Lanches
                                     </a>
                                 </li>
